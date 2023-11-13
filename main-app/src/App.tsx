@@ -2,11 +2,13 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
+import { Accordion, AccordionTab } from 'primereact/accordion';
+import { FileUpload } from 'primereact/fileupload';
 
 import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
 import 'primereact/resources/primereact.min.css'; //core css
 import 'primeicons/primeicons.css'; //icons
-// import 'primeflex/primeflex.css'; // flex
+import 'primeflex/primeflex.css'; // flex
 import './App.css';
 
 function App() {
@@ -14,22 +16,44 @@ function App() {
 
     return (
         <div className="App">
-            <div>
-                <a href="https://vitejs.dev" target="_blank">
-                    <img src="/vite.svg" className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://reactjs.org" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
+
             <h1>Vite + PrimeReact</h1>
             <div>
                 <h2>PrimeReact Typescript Issue Template</h2>
-                <p>
-                    Please create a test case and attach the link to the to your github
-                    issue report.
-                </p>
             </div>
+            <Accordion activeIndex={null} className='accord'>
+                <AccordionTab header="Very GOOD">
+                    <p className="m-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionTab>
+                <AccordionTab header="Also COOL">
+                    <p className="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                        quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                        sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                        Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionTab>
+                <AccordionTab header="Why NOT">
+                    <p className="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
+                        quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                        mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionTab>
+            </Accordion>
+            <FileUpload
+                name="demo[]"
+                url={'/api/upload'}
+                multiple accept="image/*"
+                maxFileSize={1000000}
+                emptyTemplate={<p className="m-0">Drag and drop files to here to upload.</p>}
+            />
             <div className="card">
                 <Button
                     icon="pi pi-plus"
